@@ -24,7 +24,7 @@
             @enderror
             
         
-            <a href="" class="btn btn-dark">Kembali</a>
+            <a href="{{ route('jabatan.index') }}" class="btn btn-dark">Kembali</a>
             <button type="submit" class="btn btn-secondary">Simpan</button>
         </div>
     </div>

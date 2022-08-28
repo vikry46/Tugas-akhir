@@ -6,6 +6,9 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\KegiatanController;
 use App\Http\Controllers\PengurusController;
 use App\Http\Controllers\JabatanController;
+use App\Http\Controllers\LaconController;
+use App\Http\Controllers\JeniskegiatanController;
+use App\Http\Controllers\SosialController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,7 +36,10 @@ Route::group(['prefix' => '/dashboard'], function(){
     Route::resource('/kegiatan', KegiatanController::class);
     Route::resource('/pengurus', PengurusController::class);
     Route::resource('/jabatan', JabatanController::class);
+    Route::resource('/lacon', LaconController::class);
+    Route::resource('/jeniskegiatan', JeniskegiatanController::class);
+
+
+Route::resource('/sosial', SosialController::class);
 });
-// Select
-Route::get('/tags/find',[ PengurusController::class, 'find']);
-Route::get('/select/jabatan', [JabatanController::class, 'selectJabatan'])->name('jabatan.select');
+

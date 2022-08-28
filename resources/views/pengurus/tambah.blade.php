@@ -110,6 +110,7 @@
                 @enderror
             </div>
         </div>
+        <a href="{{ route('pengurus.index') }}" class="btn btn-dark">Kembali</a>
         <button type="submit" class="btn btn-primary my-2">Simpan</button>
         </form>
     </div>

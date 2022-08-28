@@ -16,4 +16,11 @@ class Pengurus extends Model
     {
         return $this->belongsTo(Jabatan::class,'id_jabatan');
     }
+
+    public function sosial()
+    {
+        return $this->hasMany(Sosial::class);
+    }
+
+
 }

@@ -102,7 +102,11 @@
                         </div>
                       </div>
                       <a href="{{ route('pengurus.edit',['penguru'=>$zee]) }}" class=" btn btn-sm btn-warning">Edit</a>
-                      <a href="" class=" btn btn-sm btn-danger">Hapus</a>
+                     <form action="{{ route('pengurus.destroy', ['penguru' => $zee]) }}" method="POST" class="d-inline">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                     </form>
                     </div>
                 </div>
               </div>

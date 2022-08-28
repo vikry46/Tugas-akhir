@@ -59,9 +59,9 @@
                     <label for="select_jk" class="font-weight-bold"> Jenis Kelamin </label>
     
                     <select name="jk" id="select_jk" data-placeholder="" class="custom-select w-100 form-control @error('jk') is-invalid @enderror">
-                        <option value="{{ old('jk') }}">Pilih Jenis Kelamin</option>
-                        <option value="Laki-laki" @if (old('jk') == "Laki-laki") {{ 'selected' }} @endif>Laki laki</option>
-                        <option value="Perempuan" @if (old('jk') == "Perempuan") {{ 'selected' }} @endif>Perempuan</option>
+                        <option value="{{ old('jk', $pengurus->jk) }}">Pilih Jenis Kelamin</option>
+                        <option value="Laki-laki" @if (old('jk', $pengurus->jk) == "Laki-laki") {{ 'selected' }} @endif>Laki laki</option>
+                        <option value="Perempuan" @if (old('jk', $pengurus->jk) == "Perempuan") {{ 'selected' }} @endif>Perempuan</option>
                     </select>
                 @error('jk')
                 <span style="color :gold">
@@ -96,23 +96,44 @@
         </div>
         <div class="form-group">
             <div class="container">
-                    <label for="image"> 
-                        Foto Karyawan
-                    </label>
-                
-                <img class="img-preview img-fluid mb-3 col-sm-5">
-                <input type="file" name="image" type="file" value="" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage()" >
+                <label for="image"> 
+                    Foto Karyawan
+                </label>
+                <input type="hidden" name="oldImage" value="{{ $pengurus->image}}">
+                @if($pengurus->image)
+                   <img src="{{ asset('storage/' . $pengurus->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block">
+                @else
+                    <img class="img-preview img-fluid mb-3 col-sm-5">
+                @endif
+                    <input type="file" name="image"  value="{{ old('image', $pengurus->image) }}" class="form-control @error('image') is-invalid @enderror" id="image" onchange="previewImage()" >
                 @error('image')
-                <span style="color: gold">
-                    <strong>
-                        {{ $message }}
-                    </strong>
-                </span>    
+                   <span style="color: gold">
+                       <strong>
+                           {{ $message }}
+                       </strong>
+                   </span>    
                 @enderror
-            </div>
+        </div>
         </div>
         <button type="submit" class="btn btn-primary my-2">Simpan</button>
         </form>
     </div>
+
+    <script>
+        function previewImage()
+{
+    const foto = document.querySelector('#image');
+    const imgPreview = document.querySelector('.img-preview');
+
+    imgPreview.style.display = 'block';
+
+    const oFReader = new FileReader();
+    oFReader.readAsDataURL(foto.files[0]);
+
+    oFReader.onload = function(oFREvent){
+        imgPreview.src = oFREvent.target.result;
+    }
+}
+</script>
 @endsection
 
