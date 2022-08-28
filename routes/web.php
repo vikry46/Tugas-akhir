@@ -46,4 +46,5 @@ Route::resource('/sosial', SosialController::class);
 // perubahan baru
 // perunahan vikry
 
+});
 
