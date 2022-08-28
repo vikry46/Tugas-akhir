@@ -44,5 +44,6 @@ Route::resource('/sosial', SosialController::class);
 
 //route full kalendar
 // perubahan baru
-});
+// perunahan vikry
+
 
