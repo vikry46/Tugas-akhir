@@ -41,5 +41,7 @@ Route::group(['prefix' => '/dashboard'], function(){
 
 
 Route::resource('/sosial', SosialController::class);
+
+//route full kalendar
 });
 
