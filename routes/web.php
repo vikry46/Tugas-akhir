@@ -42,6 +42,6 @@ Route::group(['prefix' => '/dashboard'], function(){
 
 Route::resource('/sosial', SosialController::class);
 
-// perubahan tes
+// perubahan Cok baru bana
 });
 
