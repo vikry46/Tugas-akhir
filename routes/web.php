@@ -9,6 +9,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\LaconController;
 use App\Http\Controllers\JeniskegiatanController;
 use App\Http\Controllers\SosialController;
+use App\Http\Controllers\MesjidController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,7 +40,9 @@ Route::group(['prefix' => '/dashboard'], function(){
     Route::resource('/lacon', LaconController::class);
     Route::resource('/jeniskegiatan', JeniskegiatanController::class);
 
+    // Bagian keuangan
     Route::resource('/sosial', SosialController::class);
+    Route::resource('/mesjid', MesjidController::class);
 
 // perubahan dari siko
 });

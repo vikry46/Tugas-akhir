@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Sosial;
+use App\Models\Mesjid;
 use App\Models\Pengurus;
 use Illuminate\Http\Request;
 
-class SosialController extends Controller
+class MesjidController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class SosialController extends Controller
      */
     public function index()
     {
-        $MertuaOmJamaah = Sosial::all();
-        return view('keuangan.sosial.index',compact('MertuaOmJamaah'));
+        $AziziShafaaAsadel = Mesjid::all();
+        return view('keuangan.mesjid.index',compact('AziziShafaaAsadel'));
     }
 
     /**
@@ -26,7 +26,7 @@ class SosialController extends Controller
      */
     public function create()
     {
-        return view('keuangan.sosial.create',[
+        return view('keuangan.mesjid.create',[
             'pengurus' => Pengurus::all(),
         ]);
     }
@@ -46,23 +46,23 @@ class SosialController extends Controller
             'tgl'.'required'=>'Tanggal Wajib di Isi',
         ]);
         
-        Sosial::create([
+        Mesjid::create([
             'tgl' =>  $request->tgl,
             'id_pengurus' =>  $request->id_pengurus,
             'pemasukan' =>  $request->pemasukan,
             'pengeluaran' =>  $request->pengeluaran,
             'keterangan' =>  $request->keterangan,
         ]);
-        return redirect()->route('sosial.index');
+        return redirect()->route('mesjid.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sosial  $sosial
+     * @param  \App\Models\Mesjid  $mesjid
      * @return \Illuminate\Http\Response
      */
-    public function show(Sosial $sosial)
+    public function show(Mesjid $mesjid)
     {
         //
     }
@@ -70,14 +70,14 @@ class SosialController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Sosial  $sosial
+     * @param  \App\Models\Mesjid  $mesjid
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sosial $sosial)
+    public function edit(Mesjid $mesjid)
     {
-        return view('keuangan.sosial.edit',[
-            'sosial' => $sosial,
-            'pengurus' => Pengurus::all(),
+        return view('keuangan.mesjid.edit',[
+            'jinan' => $mesjid,
+            'marsha' => Pengurus::all(),
         ]);
     }
 
@@ -85,10 +85,10 @@ class SosialController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sosial  $sosial
+     * @param  \App\Models\Mesjid  $mesjid
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sosial $sosial)
+    public function update(Request $request, Mesjid $mesjid)
     {
         $request->validate([
             'tgl'=>'required',
@@ -96,25 +96,25 @@ class SosialController extends Controller
         ],[
             'tgl'.'required'=>'Tanggal Wajib di Isi',
         ]);
-        Sosial::where('id',$sosial->id)->update([
+        Mesjid::where('id',$mesjid->id)->update([
             'tgl' =>  $request->tgl,
             'id_pengurus' =>  $request->id_pengurus,
             'pemasukan' =>  $request->pemasukan,
             'pengeluaran' =>  $request->pengeluaran,
             'keterangan' =>  $request->keterangan,   
         ]);
-        return redirect()->route('sosial.index');
+        return redirect()->route('mesjid.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Sosial  $sosial
+     * @param  \App\Models\Mesjid  $mesjid
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sosial $sosial)
+    public function destroy(Mesjid $mesjid)
     {
-        Sosial::destroy($sosial->id);
+        Mesjid::destroy($mesjid->id);
         return redirect()->route('sosial.index');
     }
 }
