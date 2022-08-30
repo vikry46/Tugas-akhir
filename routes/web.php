@@ -39,8 +39,7 @@ Route::group(['prefix' => '/dashboard'], function(){
     Route::resource('/lacon', LaconController::class);
     Route::resource('/jeniskegiatan', JeniskegiatanController::class);
 
-
-Route::resource('/sosial', SosialController::class);
+    Route::resource('/sosial', SosialController::class);
 
 // perubahan dari siko
 });

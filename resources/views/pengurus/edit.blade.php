@@ -31,7 +31,7 @@
             <div class="container">
                 <label for="id_jabatan">Jabatan</label>
                 <div class="form-group">
-                    <select class="form-control @error('id_jabatan') is-invalid @enderror" id="select_jabatan" name="id_jabatan">
+                    <select class="form-control @error('id_jabatan') is-invalid @enderror" id="id_jabatan" name="id_jabatan">
                        <option>Pilih Jabatan</option>
                         @foreach ($jabatan as $item)
                         <option value="{{ $item->id }}" @if ($item->id == $pengurus->id_jabatan) selected @endif>{{ $item->nama_kategori }}</option>

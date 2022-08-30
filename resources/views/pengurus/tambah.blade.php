@@ -29,19 +29,19 @@
         <div class="form-group">
             <div class="container">
                  <label for="id_jabatan">Jabatan</label>
-            <div class="form-group">
-                <select class="form-control @error('id_jabatan') is-invalid @enderror" id="id_jabatan" name="id_jabatan">
-                    <option>Pilih Jabatan</option>
-                    @foreach ($jabatan as $field)
-                        <option value="{{ $field->id }}" {{ old('id_jabatan') == $field->id ? 'selected' : '' }}>{{ $field->nama_kategori }}</option>
-                    @endforeach
-                </select>
-                @error('id_jabatan')
-                    <label style="color: red">{{ $message }}</label>
-                @enderror
+                <div class="form-group">
+                    <select class="form-control @error('id_jabatan') is-invalid @enderror" id="id_jabatan" name="id_jabatan">
+                        <option>Pilih Jabatan</option>
+                        @foreach ($jabatan as $field)
+                            <option value="{{ $field->id }}" {{ old('id_jabatan') == $field->id ? 'selected' : '' }}>{{ $field->nama_kategori }}</option>
+                        @endforeach
+                    </select>
+                    @error('id_jabatan')
+                        <label style="color: red">{{ $message }}</label>
+                    @enderror
+                </div>
             </div>
-            </div>
-            </div>
+        </div>
         <div class="form-group">
             <div class="container">
                 <label for="nama">

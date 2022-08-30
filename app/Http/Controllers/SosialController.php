@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Sosial;
+use App\Models\Pengurus;
 use Illuminate\Http\Request;
 
 class SosialController extends Controller
@@ -25,7 +26,9 @@ class SosialController extends Controller
      */
     public function create()
     {
-        return view('keuangan.sosial.create');
+        return view('keuangan.sosial.create',[
+            'pengurus' => Pengurus::all(),
+        ]);
     }
 
     /**
@@ -50,7 +53,7 @@ class SosialController extends Controller
             'pengeluaran' =>  $request->pengeluaran,
             'keterangan' =>  $request->keterangan,
         ]);
-        return redirect()->route('keuangan.sosial.index');
+        return redirect()->route('sosial.index');
     }
 
     /**
@@ -72,7 +75,10 @@ class SosialController extends Controller
      */
     public function edit(Sosial $sosial)
     {
-        //
+        return view('keuangan.sosial.edit',[
+            'sosial' => $sosial,
+            'pengurus' => Pengurus::all(),
+        ]);
     }
 
     /**
@@ -84,7 +90,20 @@ class SosialController extends Controller
      */
     public function update(Request $request, Sosial $sosial)
     {
-        //
+        // $request->validate([
+        //     'tgl'=>'required',
+
+        // ],[
+        //     'tgl'.'required'=>'Tanggal Wajib di Isi',
+        // ]);
+        Sosial::where('id',$sosial->id)->update([
+            'tgl' =>  $request->tgl,
+            'id_pengurus' =>  $request->id_pengurus,
+            'pemasukan' =>  $request->pemasukan,
+            'pengeluaran' =>  $request->pengeluaran,
+            'keterangan' =>  $request->keterangan,   
+        ]);
+        return redirect()->route('sosial.index');
     }
 
     /**
@@ -95,6 +114,7 @@ class SosialController extends Controller
      */
     public function destroy(Sosial $sosial)
     {
-        //
+        Sosial::destroy($sosial->id);
+        return redirect()->route('sosial.index');
     }
 }
