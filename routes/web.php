@@ -41,7 +41,7 @@ Route::group(['prefix' => '/dashboard'], function(){
     Route::resource('/lacon', LaconController::class);
     Route::resource('/jeniskegiatan', JeniskegiatanController::class);
 
-    // Bagian keuangan
+    // Bagian keuangan mesjid
     Route::resource('/sosial', SosialController::class);
     Route::resource('/mesjid', MesjidController::class);
     Route::resource('/yatim', YatimController::class);
