@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('pengeluaran')->nullable();
             $table->string('keterangan')->nullable();
             $table->timestamps();
+            $table->foreign('id_pengurus')->references('id')->on('penguruses');
         });
     }
 
