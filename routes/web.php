@@ -10,6 +10,7 @@ use App\Http\Controllers\LaconController;
 use App\Http\Controllers\JeniskegiatanController;
 use App\Http\Controllers\SosialController;
 use App\Http\Controllers\MesjidController;
+use App\Http\Controllers\YatimController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,8 @@ Route::group(['prefix' => '/dashboard'], function(){
     // Bagian keuangan
     Route::resource('/sosial', SosialController::class);
     Route::resource('/mesjid', MesjidController::class);
+    Route::resource('/yatim', YatimController::class);
 
-// perubahan dari siko
+
 });
 

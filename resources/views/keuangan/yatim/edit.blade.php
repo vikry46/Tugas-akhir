@@ -13,7 +13,7 @@
     <div class="card-header" style="background-color: black; color:white">
         <center><h2 class="card-title" style="color:aliceblue">Pastikan Anda Mengubah Data Dengan Benar</h2></center>
     </div>
-<form action="{{ route('mesjid.update',['mesjid'=>$jinan]) }}" method="POST">
+<form action="{{ route('yatim.update',['yatim'=>$jinan]) }}" method="POST">
     @method('PUT')
     @csrf
     <div class="form-group">

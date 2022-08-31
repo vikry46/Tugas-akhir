@@ -1,16 +1,16 @@
 @extends('layouts.backend')
 
 @section('title')
-    Keuangan Mesjid | {{ config('app.name') }}
+    Keuangan Yatim | {{ config('app.name') }}
 @endsection
 
 @section('title-page')
-    Keuangan Mesjid
+    Keuangan Yatim
 @endsection
 
 @section('content-header')
-<center><h2>Form Keuangan Mesjid</h2></center>
-<a href="{{ route('mesjid.create') }}" class="btn btn-secondary">Tambah Data</a>
+<center><h2>Form Keuangan Yatim</h2></center>
+<a href="{{ route('yatim.create') }}" class="btn btn-secondary">Tambah Data</a>
 <div class="card-body px-0 pt-0 pb-2">
     <div class="table-responsive p-0">
       <table class="table align-items-center mb-0 table-dark">
@@ -26,7 +26,7 @@
           </tr>
         </thead>
         <tbody>
-          @foreach($AziziShafaaAsadel as $sah )
+          @foreach($ShaniaGracia as $sah )
           <tr>
           <td scope="row" class="text-center">{{ $loop->iteration }}</td>
           <td class="text-center">{{ $sah->tgl }}</td>
@@ -35,10 +35,10 @@
           <td class="text-center">{{ $sah->pengeluaran }}</td>
           <td class="text-center">{{ $sah->keterangan }}</td>
           <td class="text-center">
-            <a href="{{ route('mesjid.edit',['mesjid'=>$sah]) }}" class="btn btn-primary btn-sm">
+            <a href="{{ route('yatim.edit',['yatim'=>$sah]) }}" class="btn btn-primary btn-sm">
               <i class="fas fa-edit"></i>
             </a>
-            <form action="{{ route('mesjid.destroy', ['mesjid' => $sah]) }}" method="POST" class="d-inline">
+            <form action="{{ route('yatim.destroy', ['yatim' => $sah]) }}" method="POST" class="d-inline">
               @method('delete')
               @csrf
                 <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apa kamu yakin menghapus data ini,,  Nah Ayoloh')">
