@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Sosial;
 use App\Models\Pengurus;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class SosialController extends Controller
@@ -16,7 +17,10 @@ class SosialController extends Controller
     public function index()
     {
         $MertuaOmJamaah = Sosial::all();
-        return view('keuangan.sosial.index',compact('MertuaOmJamaah'));
+        $sumPemasukan =  DB::table('sosials')->sum('pemasukan');
+        $sumPengeluaran =  DB::table('sosials')->sum('pengeluaran');
+        $jumlah = $sumPemasukan -  $sumPengeluaran;
+        return view('keuangan.sosial.index',compact('MertuaOmJamaah', 'sumPengeluaran','sumPemasukan','jumlah'));
     }
 
     /**

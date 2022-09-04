@@ -17,12 +17,14 @@ return new class extends Migration
             $table->id();
             $table->date('tgl');
             $table->unsignedBigInteger('id_pengurus');
+            $table->unsignedBigInteger('id_kegiatan');
             $table->string('pemasukan')->nullable();
             $table->string('pengeluaran')->nullable();
             $table->string('keterangan')->nullable();
             $table->timestamps();
 
             $table->foreign('id_pengurus')->references('id')->on('penguruses');
+            $table->foreign('id_kegiatan')->references('id')->on('kegiatans');
         });
     }
 

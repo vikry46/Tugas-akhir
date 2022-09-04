@@ -34,6 +34,10 @@
   <!-- CSS Files -->
   <link id="pagestyle" href="{{ asset('tamplate') }}/assets/css/argon-dashboard.css?v=2.0.4" rel="stylesheet" />
 
+  
+
+ 
+
   @stack('css-external')
   @stack('css-internal')
 </head>
@@ -371,11 +375,13 @@
   <script src="{{ asset('tamplate') }}/assets/js/plugins/perfect-scrollbar.min.js"></script>
   <script src="{{ asset('tamplate') }}/assets/js/plugins/smooth-scrollbar.min.js"></script>
   <script src="{{ asset('tamplate') }}/assets/js/plugins/chartjs.min.js"></script>
+
+  
   {{-- javascript:external --}}
   @stack('javascript-external')
   {{-- javascript:internal --}}
   @stack('javascript-internal')
-  <script>
+  {{-- <script>
     var ctx1 = document.getElementById("chart-line").getContext("2d");
 
     var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
@@ -457,7 +463,7 @@
         },
       },
     });
-  </script>
+  </script> --}}
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {

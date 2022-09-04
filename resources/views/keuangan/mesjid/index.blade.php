@@ -52,4 +52,10 @@
       </table>
     </div>
   </div>
+
+  <div class="card" >
+    {{ $sumPemasukan }} Ini Pemasukan <br>  
+    {{ $sumPengeluaran }} Ini Pengeluaran <br>  
+    {{ $jumlah }} Ini Total <br>  
+</div>  
 @endsection

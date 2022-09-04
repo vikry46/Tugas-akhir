@@ -22,6 +22,11 @@ class Pengurus extends Model
         return $this->hasMany(Sosial::class);
     }
 
+    public function kegiatan()
+    {
+        return $this->hasMany(Kegiatan::class);
+    }
+
     public function mesjid()
     {
         return $this->hasMany(Mesjid::class);

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Yatim;
 use App\Models\Pengurus;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class YatimController extends Controller
@@ -16,7 +17,10 @@ class YatimController extends Controller
     public function index()
     {
         $ShaniaGracia = Yatim::all();
-        return view('keuangan.yatim.index',compact('ShaniaGracia'));
+        $sumPemasukan =  DB::table('yatims')->sum('pemasukan');
+        $sumPengeluaran =  DB::table('yatims')->sum('pengeluaran');
+        $jumlah = $sumPemasukan -  $sumPengeluaran;
+        return view('keuangan.yatim.index',compact('ShaniaGracia', 'sumPengeluaran','sumPemasukan','jumlah'));
     }
 
     /**

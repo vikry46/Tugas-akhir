@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Mesjid;
 use App\Models\Pengurus;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class MesjidController extends Controller
@@ -16,7 +17,10 @@ class MesjidController extends Controller
     public function index()
     {
         $AziziShafaaAsadel = Mesjid::all();
-        return view('keuangan.mesjid.index',compact('AziziShafaaAsadel'));
+        $sumPemasukan =  DB::table('mesjids')->sum('pemasukan');
+        $sumPengeluaran =  DB::table('mesjids')->sum('pengeluaran');
+        $jumlah = $sumPemasukan -  $sumPengeluaran;
+        return view('keuangan.mesjid.index',compact('AziziShafaaAsadel', 'sumPengeluaran','sumPemasukan','jumlah'));
     }
 
     /**

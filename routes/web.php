@@ -32,20 +32,32 @@ Route::get('/', function () {
 Auth::routes([
     'register' => false
 ]);
+
 // Admin
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
 Route::group(['prefix' => '/dashboard'], function(){
-    Route::resource('/kegiatan', KegiatanController::class);
-    Route::resource('/pengurus', PengurusController::class);
-    Route::resource('/jabatan', JabatanController::class);
-    Route::resource('/lacon', LaconController::class);
-    Route::resource('/jeniskegiatan', JeniskegiatanController::class);
 
-    // Bagian keuangan mesjid
-    Route::resource('/sosial', SosialController::class);
-    Route::resource('/mesjid', MesjidController::class);
-    Route::resource('/yatim', YatimController::class);
+    // Route::middleware('auth')->group(function () {
+
+        Route::resource('/kegiatan', KegiatanController::class);
+        Route::post('/kegiatan_ajax', [KegiatanController::class, 'ajax']);
+        Route::get('/single_kegiatan', [KegiatanController::class, 'singleKegiatan']);
+        
+        Route::resource('/pengurus', PengurusController::class);
+        Route::resource('/jabatan', JabatanController::class);
+        Route::resource('/lacon', LaconController::class);
+        Route::resource('/jeniskegiatan', JeniskegiatanController::class);
+
+        // Bagian keuangan mesjid
+        Route::resource('/sosial', SosialController::class);
+        Route::resource('/mesjid', MesjidController::class);
+        Route::resource('/yatim', YatimController::class);
+        
+
+    // });
 
 
+    
 });
 

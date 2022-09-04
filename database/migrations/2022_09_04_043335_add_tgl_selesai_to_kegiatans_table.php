@@ -13,9 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kegiatans', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('kegiatans', function (Blueprint $table) {
+            $table->string('tgl_selesai', 20);
         });
     }
 
@@ -26,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kegiatans');
+        Schema::table('kegiatans', function (Blueprint $table) {
+            $table->dropColumn('tgl_selesai');
+        });
     }
 };
