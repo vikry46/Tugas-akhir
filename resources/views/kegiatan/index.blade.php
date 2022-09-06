@@ -27,52 +27,7 @@
 <div class="card-body px-0 pt-0 pb-2">
 
   <div id='calendar' class="mt-8"></div>
-
-    {{-- <div class="table-responsive p-0">
-      <table class="table align-items-center mb-0 table-dark">
-        <thead>
-          <tr>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">No</th>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Tanggal</th>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Nama</th>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Jenis Kegiatan</th>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Imam</th>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Penceramah</th>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Pengurus</th>
-            <th class="text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7 ps-2">Keterangan</th>
-            <th class="text-center text-uppercase text-secondary text-center text-xxs font-weight-bolder opacity-7">Apsi</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach($kegiatans as $del)
-          <tr>
-          <td scope="row" class="text-center">{{ $loop->iteration }}</td>
-          <td class="text-center">{{ $del->tgl }}</td>
-          <td class="text-center">{{ $del->nama }}</td>
-          <td class="text-center">{{ $del->jeniskegiatan->jenis_kegiatan }}</td>
-          <td class="text-center">{{ $del->lacon->nama }}</td>
-          <td class="text-center">{{ $del->penceramah->nama }}</td>
-          <td class="text-center">{{ $del->pengurus->nama }}</td>
-          <td class="text-center">{{ $del->keterangan }}</td>
-          <td class="text-center">
-            <a href="{{ route('lacon.edit', ['lacon' => $del]) }}" class="btn btn-primary btn-sm">
-              <i class="fas fa-edit"></i>
-            </a>
-            <form action="{{ route('lacon.destroy', ['lacon' => $del]) }}" method="POST" class="d-inline">
-              @method('delete')
-              @csrf
-                <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Apa kamu yakin menghapus data ini,,  Nah Ayoloh')">
-                  <i class="fas fa-trash"></i>
-                </button>
-            </form>
-          </td>
-          </tr>
-          @endforeach
-        </tbody>
-      </table>
-    </div> --}}
   </div>
-
 
   <!-- Modal -->
 <div class="modal fade" id="detailKegiatan" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,6 +42,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <a type="" class="btn btn-danger" data-bs-dismiss="modal">Hapus</a>
         {{-- <button type="button" class="btn btn-primary">Save changes</button> --}}
       </div>
     </div>
@@ -367,6 +323,11 @@
                                             <tr>
                                               <td style='font-weight:bold; width:200px; margin-top:20px''>Judul Kegiatan</td>
                                               <td>${response.jeniskegiatan.jenis_kegiatan}</td>
+                                            </tr>
+
+                                            <tr>
+                                              <td style='font-weight:bold; width:200px; margin-top:20px''>Keterangan</td>
+                                              <td>${response.keterangan}</td>
                                             </tr>
                                         </table>
 

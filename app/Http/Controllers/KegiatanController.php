@@ -161,7 +161,7 @@ class KegiatanController extends Controller
 
                 'id_pengurus' => 1,
 
-                'keterangan' => '-',
+                'keterangan' => $request->keterangan,
 
                 'tgl_mulai' => $request->tgl_mulai,
 

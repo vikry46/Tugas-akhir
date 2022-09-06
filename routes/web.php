@@ -38,7 +38,6 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 Route::group(['prefix' => '/dashboard'], function(){
 
-    // Route::middleware('auth')->group(function () {
 
         Route::resource('/kegiatan', KegiatanController::class);
         Route::post('/kegiatan_ajax', [KegiatanController::class, 'ajax']);
@@ -55,7 +54,6 @@ Route::group(['prefix' => '/dashboard'], function(){
         Route::resource('/yatim', YatimController::class);
         
 
-    // });
 
 
     
