@@ -54,7 +54,7 @@ Route::group(['prefix' => '/dashboard'], function(){
         Route::resource('/yatim', YatimController::class);
         
 
-
+// belahar git ter update
 
     
 });
